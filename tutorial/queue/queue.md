@@ -14,6 +14,7 @@ The overall efficiency of a queue is
 Queues are a first in first out structure meaning 
 that the first entitiy to enter the queue is also the first to exit.
 Depending on the type of queue there can be some exceptions to this rule.
+See an example of an implementation of a<a href="basic.py">Basic Queue</a>
 
 ## Types of Queues
 ### Priority
