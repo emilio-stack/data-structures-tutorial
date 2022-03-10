@@ -9,6 +9,6 @@ This is a tutorial on some of the most common data structures used by software e
 This tutorial is set up into modules on one type of data structure.
 We will cover the following data structures:
 
-- <a href="queues.md">Queues</a>
+- <a href="queue.md">Queues</a>
 - <a href="linkedLists.md">Linked Lists</a>
 - <a href="trees.md">Trees</a>
