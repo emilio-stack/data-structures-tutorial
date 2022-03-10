@@ -10,5 +10,5 @@ This tutorial is set up into modules on one type of data structure.
 We will cover the following data structures:
 
 - <a href="queue/queue.md">Queues</a>
-- <a href="linkedLists.md">Linked Lists</a>
-- <a href="trees.md">Trees</a>
+- <a href="linkedList/linkedList.md">Linked Lists</a>
+- <a href="tree/tree.md">Trees</a>

@@ -1,4 +1,4 @@
-# QUEUES!
+# Queues
 
 Queues are everywhere in everyday life! 
 In this tutorial we will deal with two examples of queues: 
