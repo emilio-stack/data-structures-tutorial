@@ -14,7 +14,7 @@ The overall efficiency of a queue is
 Queues are a first in first out structure meaning 
 that the first entitiy to enter the queue is also the first to exit.
 Depending on the type of queue there can be some exceptions to this rule.
-See an example of an implementation of a<a href="basic.py">Basic Queue</a>
+See an example of an implementation of a <a href="basic.py">Basic Queue</a>
 
 ## Types of Queues
 ### Priority
@@ -29,3 +29,4 @@ Another variation to the basic queue structure is the turn queue where entities 
 The entity that exits first is the one with the least number of turns and the entity that exits last is the
 one with the most number of turns.
 A good example of this kind of queue is a game of Uno where the number of cards in your hand is the number of turns you have left. The goal is to exit the queue first by getting rid of your number of turns.
+See an example of an implementation of a <a href="basic.py">Turns Queue</a>
