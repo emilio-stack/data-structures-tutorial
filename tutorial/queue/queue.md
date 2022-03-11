@@ -23,6 +23,7 @@ In a priority queue the entity with the highest priority exits first, not necess
 enter.
 This is to say that if entity 1 in the queue has a lower priority than entity 2, then entity 2 will exit the queue before entity 1. 
 A good example of this kind of queue is a customer service call center where different needs have different priorities.
+See an example of an implementation of a <a href="basic.py">Priority Queue</a>
 
 ### Turns
 Another variation to the basic queue structure is the turn queue where entities take turns in the queue. 
