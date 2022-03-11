@@ -31,3 +31,11 @@ The entity that exits first is the one with the least number of turns and the en
 one with the most number of turns.
 A good example of this kind of queue is a game of Uno where the number of cards in your hand is the number of turns you have left. The goal is to exit the queue first by getting rid of your number of turns.
 See an example of an implementation of a <a href="turns.py">Turns Queue</a>
+
+
+## Example
+In this <a href="example.py">example</a> I will walk you through how to implement a priority queue for a customer service call center.
+
+## Practice
+In this <a href="practice.py">practice problem</a> you will implement a priority queue for a music playlist.
+See the solution <a href="solution.py">here</a>.
