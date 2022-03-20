@@ -8,7 +8,8 @@ Here are some examples:
 * The order of turns in a game of Uno
 
 ## Efficiency
-The overall efficiency of a queue is 
+* enqueue(): O(1) because you are adding on to the back of the list.
+* dequeue(): O(n) because you are removing from the front of the list and then shifting each item over.
 
 ## Basic Structure
 Queues are a first in first out structure meaning 

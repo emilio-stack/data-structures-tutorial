@@ -18,6 +18,9 @@
 #   it to play next. 
 ##########################################################################
 
+from timeit import repeat
+from tkinter import N
+
 
 class Playlist_Queue:
     """
@@ -33,7 +36,8 @@ class Playlist_Queue:
             """
             Initialize the song
             """
-            pass
+            self.name = name
+            self.priority = priority
 
         def __str__(self):
             """
@@ -48,7 +52,18 @@ class Playlist_Queue:
         This constructor will create a queue of Song objects from
         the passed in song names.
         """
-        pass
+        # If there are no songs passed in then we don't need to do anything
+        if len(song_names) == 0:
+            self.queue = [] 
+
+        # Otherwise asssign the same priority to all songs
+        else:
+            self.queue = []
+            for name in song_names:
+                song = Playlist_Queue.Song(name, 1) 
+                self.queue.append(song)
+    
+        self.repeat = False
 
     def queue_song(self, name):
         """
@@ -56,7 +71,10 @@ class Playlist_Queue:
         the user to queue a new song. It automatically has a higher
         priority because when you queue a song it should play next.
         """
-        pass
+
+        # Create the song object and add it to the queue
+        song = Playlist_Queue.Song(name, 2)
+        self.queue.append(song)
 
     def _play_next_song(self, playlist):
         """
@@ -66,7 +84,22 @@ class Playlist_Queue:
         songs with the same priority, we will play them in order of 
         first added to the queue.
         """
-        pass
+
+        if len(playlist) == 0:  # Verify the queue is not empty
+            print("The playlist is empty.")
+
+        # Find the index of the item with the highest priority 
+        high_pri_index = 0
+        for index in range(1, len(playlist)):
+            if playlist[index].priority > self.queue[high_pri_index].priority:
+                high_pri_index = index
+            elif playlist[index].priority > playlist[high_pri_index].priority:
+                if index < high_pri_index:
+                    high_pri_index = index
+        # Play the song with the highest priority
+        song = playlist[high_pri_index]
+        playlist.pop(high_pri_index)
+        print(f"Playing: '{song.name}'")
 
     def play(self):
         """
@@ -75,19 +108,36 @@ class Playlist_Queue:
         If set to true, it will call the play on repeat function. If not it will
         play normally.
         """
-        pass
+        repeat = input("Play on repeat? (y/n)")
+        if repeat.lower() == "y":
+            self.repeat = True
+
+        if self.repeat == False:
+            self._play_normal()
+        else:
+            self._play_repeat()
     
     def _play_normal(self):
         """
         A function to play the playlist normally (Not on repeat)
         """
-        pass
+        # make a copy to keep the original array intact
+        current_queue = list(self.queue)
+        for i in range(len(current_queue)):
+            self._play_next_song(current_queue)
     
     def _play_repeat(self):
         """
         A function to play the playlist on repeat
         """
-        pass
+        while self.repeat:
+            # make a copy to keep the original array intact
+            current_queue = list(self.queue)
+            for i in range(len(current_queue)):
+                self._play_next_song(current_queue)
+            cont = input("repeat? (y/n)")
+            if cont.lower() == "n":
+                self.repeat = False
 
     def __str__(self):
         """ 
