@@ -10,6 +10,7 @@ Here are some examples:
 ## Efficiency
 * enqueue(): O(1) because you are adding on to the back of the list.
 * dequeue(): O(n) because you are removing from the front of the list and then shifting each item over.
+* IF IMPLEMENTED WITH A LINKED LIST EFFICIENY IS O(1)
 
 ## Basic Structure
 Queues are a first in first out structure meaning 
