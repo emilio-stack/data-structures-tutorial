@@ -1,9 +1,6 @@
 class LinkedList:
     """
-    Implement the LinkedList data structure.  The Node class below is an 
-    inner class.  An inner class means that its real name is related to 
-    the outer class.  To create a Node object, we will need to 
-    specify LinkedList.Node
+    A double ended linked list implemented
     """
 
     class Node:
@@ -48,9 +45,6 @@ class LinkedList:
             self.head.prev = new_node # Connect the previous head to the new node
             self.head = new_node      # Update the head to point to the new node
 
-    ###################
-    # Start Problem 1 #
-    ###################
     def insert_tail(self, value):
         """
         Insert a new node at the back (i.e. the tail) of the 
@@ -72,10 +66,6 @@ class LinkedList:
             self.tail.next = new_node # Connect the previous head to the new node
             self.tail = new_node      # Update the head to point to the new node
 
-    #################
-    # End Problem 1 #
-    #################
-
     def remove_head(self):
         """ 
         Remove the first node (i.e. the head) of the linked list.
@@ -92,9 +82,6 @@ class LinkedList:
             self.head.next.prev = None  # Disconnect the second node from the first node
             self.head = self.head.next  # Update the head to point to the second node
 
-    ###################
-    # Start Problem 2 #
-    ###################
     def remove_tail(self):
         """
         Remove the last node (i.e. the tail) of the linked list.
@@ -110,10 +97,6 @@ class LinkedList:
         elif self.tail is not None:
             self.tail.prev.next = None  # Disconnect the second node from the first node
             self.tail = self.tail.prev  # Update the head to point to the second node
-
-    #################
-    # End Problem 2 #
-    #################
 
     def insert_after(self, value, new_value):
         """
@@ -140,9 +123,6 @@ class LinkedList:
                 return # We can exit the function after we insert
             curr = curr.next # Go to the next node to search for 'value'
 
-    ###################
-    # Start Problem 3 #
-    ###################
     def remove(self, value):
         """
         Remove the first node that contains 'value'.
@@ -161,14 +141,6 @@ class LinkedList:
                 done = True    
             current_node = current_node.next
         
-
-    #################
-    # End Problem 3 #
-    #################
-
-    ###################
-    # Start Problem 4 #
-    ###################
     def replace(self, old_value, new_value):
         """
         Searrch for all instances of 'old_value' and replace the value 
@@ -181,10 +153,6 @@ class LinkedList:
                 current_node.data = new_value
             current_node = current_node.next
 
-    #################
-    # End Problem 4 #
-    #################
-
     def __iter__(self):
         """
         Iterate foward through the Linked List
@@ -194,9 +162,6 @@ class LinkedList:
             yield curr.data  # Provide (yield) each item to the user
             curr = curr.next # Go forward in the linked list
 
-    ###################
-    # Start Problem 5 #
-    ###################
     def __reversed__(self):
         """
         Iterate backward through the Linked List
@@ -205,10 +170,6 @@ class LinkedList:
         while current_node is not None:
             yield current_node.data
             current_node = current_node.prev
-
-    #################
-    # End Problem 5 #
-    #################
 
     def __str__(self):
         """
