@@ -6,7 +6,7 @@ Linked lists have some of the most useful applications because of their ease to 
 * Linked lists have an efficency of O(1) for both adding and removing elements from the list. 
 
 ## Basic Structure
-The basic structure of a linked list is a collection of elements where each element has a pointer or referance to the next element in the collection. Linked Lists do not have to be stored in memory side by side because of this pointer. The basic sturcture of a linked list is where each element points to the next (one way) but some linked lists can also be double ended where each element in the collection points to the next and the previous one. <a href="basic.py">Basic Linked List</a>
+The basic structure of a linked list is a collection of elements where each element has a pointer or referance to the next element in the collection. Linked Lists do not have to be stored in memory side by side because of this pointer. The basic sturcture of a linked list is where each element points to the next (one way) but some linked lists can also be double ended where each element in the collection points to the next and the previous one.
 
 ## Types of Linked Lists
 ### Single Ended
