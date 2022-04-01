@@ -93,11 +93,11 @@ class CongaLine:
         # will be affected.
         elif self.tail is not None:
             curr_node = self.head
-            while curr_node.next != self.tail:
-                if curr_node.next == self.tail:
-                    curr_node.next = None
-                    self.tail = curr_node      # Update the tail
+            while curr_node.next != self.tail: # Stop when we have found the node right before the tail
                 curr_node = curr_node.next
+            assert(curr_node.next == self.tail) # make sure we have found the node right before the tail
+            curr_node.next = None  # Disconnect the tail
+            self.tail = curr_node  # set the new the tail
 
     def insert_after(self, name, new_name):
         """
@@ -126,16 +126,18 @@ class CongaLine:
         """
         Remove the first node that contains 'value'.
         """
-        # one node list case 
-        if current_node == self.head:
-            self.remove_head()
-        elif current_node == self.tail:
-            self.remove_tail()
-
         current_node = self.head
-        while current_node != None and current_node.next.name != name:
+        if current_node.name == name:
+            self.remove_head()
+            return
+        while current_node != None:
             if current_node.next.name == name:
+                if current_node.next == self.tail:
+                    self.remove_tail()
+                    return
+                else:
                     current_node.next = current_node.next.next
+                    return
             current_node = current_node.next
         
     def replace(self, old_name, new_name):

@@ -1,4 +1,4 @@
-class LinkedList:
+class DoubleLinkedList:
     """
     A double ended linked list implemented
     """
@@ -31,13 +31,14 @@ class LinkedList:
         linked list.
         """
         # Create the new node
-        new_node = LinkedList.Node(value)  
+        new_node = DoubleLinkedList.Node(value)  
         
         # If the list is empty, then point both head and tail
         # to the new node.
         if self.head is None:
             self.head = new_node
             self.tail = new_node
+
         # If the list is not empty, then only self.head will be
         # affected.
         else:
@@ -51,7 +52,7 @@ class LinkedList:
         linked list.
         """
         # Create the new node
-        new_node = LinkedList.Node(value)
+        new_node = DoubleLinkedList.Node(value)
 
         # If the list is empty, then point both head and tail
         # to the new node.
@@ -92,6 +93,7 @@ class LinkedList:
         if self.head == self.tail:
             self.head = None
             self.tail = None
+
         # If the list has more than one item in it, then only self.tail
         # will be affected.
         elif self.tail is not None:
@@ -115,7 +117,7 @@ class LinkedList:
                 # For any other location of 'value', need to create a 
                 # new node and reconenct the links to insert.
                 else:
-                    new_node = LinkedList.Node(new_value)
+                    new_node = DoubleLinkedList.Node(new_value)
                     new_node.prev = curr       # Connect new node to the node containing 'value'
                     new_node.next = curr.next  # Connect new node to the node after 'value'
                     curr.next.prev = new_node  # Connect node after 'value' to the new node
@@ -129,7 +131,7 @@ class LinkedList:
         """
         current_node = self.head
         done = False
-        while current_node != None and not (done):
+        while current_node != None and not done:
             if current_node.data == value:
                 if current_node == self.head:
                     self.remove_head()
@@ -146,7 +148,6 @@ class LinkedList:
         Searrch for all instances of 'old_value' and replace the value 
         to 'new_value'.
         """
-
         current_node = self.head
         while current_node != None:
             if current_node.data == old_value:

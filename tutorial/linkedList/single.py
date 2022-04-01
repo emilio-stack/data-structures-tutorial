@@ -1,11 +1,11 @@
-class LinkedList:
+class SingleLinkedList:
     """
     An implementation of a singally linked list data structure.
     """
 
     class Node:
         """
-        Each node of the linked list will have data and one link 
+        Each node of the linked list will have data and one link pointing
         to the next node in the list.
         """
 
@@ -30,13 +30,14 @@ class LinkedList:
         linked list.
         """
         # Create the new node
-        new_node = LinkedList.Node(value)  
+        new_node = SingleLinkedList.Node(value)  
         
         # If the list is empty, then point both head and tail
         # to the new node.
         if self.head is None:
             self.head = new_node
             self.tail = new_node
+
         # If the list is not empty, then only self.head will be
         # affected.
         else:
@@ -49,7 +50,7 @@ class LinkedList:
         linked list.
         """
         # Create the new node
-        new_node = LinkedList.Node(value)
+        new_node = SingleLinkedList.Node(value)
 
         # If the list is empty, then point both head and tail
         # to the new node.
@@ -73,6 +74,7 @@ class LinkedList:
         if self.head == self.tail:
             self.head = None
             self.tail = None
+
         # If the list has more than one item in it, then only self.head
         # will be affected.
         elif self.head is not None:
@@ -88,15 +90,16 @@ class LinkedList:
         if self.head == self.tail:
             self.head = None
             self.tail = None
+
         # If the list has more than one item in it, then only self.tail
         # will be affected.
         elif self.tail is not None:
             curr_node = self.head
-            while curr_node.next != self.tail:
-                if curr_node.next == self.tail:
-                    curr_node.next = None
-                    self.tail = curr_node      # Update the tail
+            while curr_node.next != self.tail:  # Stop when we have found the node right before the tail
                 curr_node = curr_node.next
+            assert(curr_node.next == self.tail) # make sure we have found the node right before the tail
+            curr_node.next = None      # Disconnect the tail
+            self.tail = curr_node      # set the new the tail
 
     def insert_after(self, value, new_value):
         """
@@ -115,7 +118,7 @@ class LinkedList:
                 # For any other location of 'value', need to create a 
                 # new node and reconenct the links to insert.
                 else:
-                    new_node = LinkedList.Node(new_value)
+                    new_node = SingleLinkedList.Node(new_value)
                     new_node.next = curr.next  # Connect new node to the node after 'value'
                     curr.next = new_node       # Connect the node containing 'value' to the new node
                 return # We can exit the function after we insert
@@ -125,16 +128,19 @@ class LinkedList:
         """
         Remove the first node that contains 'value'.
         """
-        # one node list case 
-        if current_node == self.head:
-            self.remove_head()
-        elif current_node == self.tail:
-            self.remove_tail()
-
         current_node = self.head
-        while current_node != None and current_node.next.data != value:
+        if current_node.data == value:
+            self.remove_head()
+            return
+        while current_node != None:
             if current_node.next.data == value:
+                if current_node.next == self.tail:
+                    self.remove_tail()
+                    return
+                # There must be more than one node
+                else:
                     current_node.next = current_node.next.next
+                    return
             current_node = current_node.next
         
     def replace(self, old_value, new_value):
