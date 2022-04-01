@@ -18,6 +18,11 @@ that the first entitiy to enter the queue is also the first to exit.
 Depending on the type of queue there can be some exceptions to this rule.
 See an example of an implementation of a <a href="basic.py">Basic Queue</a>
 
+## Picture of a queue
+Here is a picture explaining the basic queue structure courtesy of <a href="https://prepinsta.com/data-structures/queue/">Prep Insta</a>
+![Image of a Queue](queue.png)
+
+
 ## Types of Queues
 ### Priority
 One exception to the basic queue structure is the Priority Queue.
