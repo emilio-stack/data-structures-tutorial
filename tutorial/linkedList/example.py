@@ -183,8 +183,8 @@ class CongaLine:
 
 # Test 1: conga line has just started and people are joining
 line = CongaLine()
-line.insert_tail(CongaLine.Person("Terry"))
-line.insert_tail(CongaLine.Person("Jerry"))
-line.insert_tail(CongaLine.Person("Larry"))
-line.insert_tail(CongaLine.Person("Mary"))
+line.insert_tail("Terry")
+line.insert_tail("Jerry")
+line.insert_tail("Larry")
+line.insert_tail("Mary")
 print(line)
