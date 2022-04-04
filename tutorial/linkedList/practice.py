@@ -1,3 +1,17 @@
+##########################################################################
+# In this practice problem we will take the priority customer service 
+# queue implememnted in the queue section and we will implement the queue 
+# using a linked list.
+#
+# This call center takes several kinds of calls each with their own
+# priority. In order of highest priority to lowest they are:
+#       1. Retention (Customers calling to cancel their subscription)
+#       2. Customer Service (Customers calling about a problem)
+#       3. Sales (Customers calling to place an order)
+#
+# Your assingment is to switch the implementation to a linked list to 
+# achieve better performance.
+##########################################################################
 class CustomerServiceQueue:
     """
     A customer service priority queue implemented as a double linked list
@@ -14,32 +28,89 @@ class CustomerServiceQueue:
             Initialize the node to the data provided.  Initially
             the links are unknown so they are set to None.
             """
+            self.name = name
+            if problem.lower() == "retention":
+                self.priority = 4
+            elif problem.lower() == "customer service":
+                self.priority = 3
+            elif problem.lower() == "sales":
+                self.priority = 2
+            else:
+                self.priority = 1
+            self.next = None
+            self.prev = None
 
     def __init__(self):
         """
         Initialize an empty linked list.
         """
+        self.head = None
+        self.tail = None
 
     def add_new_customer(self, name, problem=""):
         """
         Add a new customer to the priority queue
         """
+        if self.head == None:
+            self.head = CustomerServiceQueue.Customer(name, problem)
+            self.tail = self.head
+        else:
+            new_customer = CustomerServiceQueue.Customer(name, problem)
+            self.tail.next = new_customer
+            new_customer.prev = self.tail
+            self.tail = new_customer
     
     def remove_head(self):
         """ 
         Remove the first node (i.e. the head) of the linked list.
         """
+        # If the list has only one item in it, then set head and tail 
+        # to None resulting in an empty list.  This condition will also
+        # cover an empty list.  Its okay to set to None again.
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+        # If the list has more than one item in it, then only self.head
+        # will be affected.
+        elif self.head is not None:
+            self.head.next.prev = None  # Disconnect the second node from the first node
+            self.head = self.head.next  # Update the head to point to the second node
         
     def remove_tail(self):
         """
         Remove the last node (i.e. the tail) of the linked list.
         """
+        # If the list has only one item in it, then set head and tail 
+        # to None resulting in an empty list.  This condition will also
+        # cover an empty list.  Its okay to set to None again.
+        if self.head == self.tail:
+            self.head = None
+            self.tail = None
+        # If the list has more than one item in it, then only self.tail
+        # will be affected.
+        elif self.tail is not None:
+            self.tail.prev.next = None  # Disconnect the second node from the first node
+            self.tail = self.tail.prev  # Update the head to point to the second node
 
     def serve_customer(self):
         """
         Serve the customer with the highest priority. 
         If there is a tie, serve the customer that was there the first.
         """
+        highest_priority = self.head
+        node = self.head
+        while node is not None:
+            if node.priority > highest_priority.priority:
+                highest_priority = node
+            node = node.next
+        if highest_priority == self.head:
+            self.remove_head()
+        elif highest_priority == self.tail:
+            self.remove_tail()
+        else:
+            highest_priority.prev.next = highest_priority.next
+            highest_priority.next.prev = highest_priority.prev
+        print(f"Now serving: {highest_priority.name}")
 
     def __iter__(self):
         """

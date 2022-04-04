@@ -18,10 +18,6 @@
 #   it to play next. 
 ##########################################################################
 
-from timeit import repeat
-from tkinter import N
-
-
 class Playlist_Queue:
     """
     A class to implement a music playlist queue.
