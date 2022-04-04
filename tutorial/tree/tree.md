@@ -7,7 +7,7 @@ A binary search tree is a very also very efficient in its operations because lik
 
 ## Basic Structure: Binary Search Tree
 * In a binary search tree there is a root node that can be though of as the trunk of a tree. That node can link no more than two other nodes. These nodes can be thought of as branches. Each node in the tree can have no more than two other nodes connected to it. Furthermore if a parent node wants to connect two more nodes to the tree then the node with the value less than the parent node goes to one side of the tree and the node with the value greater than the parent node goes to the other. This must be consistent throughout the entire tree. A node that does not connect any other nodes can be thought of as a leaf node. 
-See this picture courtsey of <a href="https://subscription.packtpub.com/book/application_development/9781789801736/8/ch08lvl1sec47/implementing-binary-search-tree">Java Fundamentals</a>
+* See this picture courtsey of <a href="https://subscription.packtpub.com/book/application_development/9781789801736/8/ch08lvl1sec47/implementing-binary-search-tree">Java Fundamentals</a>
 ![A Basic Tree Structure](basic.png)
 
 # Recursion
