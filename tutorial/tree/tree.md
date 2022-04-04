@@ -17,7 +17,7 @@ A binary search tree is a very also very efficient in its operations because lik
 In addition to the binary search tree there are some variations with trees which should be noted:
 # Unbalanced Vs Balanced
 The advantage of a binary search tree, that is efficieny in insertions and removals, is completely lost when a tree is unbalanced. This is because an unbalanced tree has basically become a list where we have to visit each element in the tree in the worst case scenario making it O(n). A tree is considered balanced if the height of any two subtrees is not dramatically different. To calculate the height of a tree is found by counting the maximum number of nodes between the root and the leaves.
-* See an example of an unbalanced tree below courtesy of <a href="https://www.epaperpress.com/sortsearch/bin.html">epaperpress.com</a>
+* See an example of an unbalanced tree below courtesy of <a href="https://www.epaperpress.com/sortsearch/bin.html">epaperpress.com</a><br>
 ![unbalanced tree](unbalanced.png)
 
 ## Example
