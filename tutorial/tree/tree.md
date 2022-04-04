@@ -16,7 +16,7 @@ A binary search tree is a very also very efficient in its operations because lik
 ## Types
 In addition to the binary search tree there are some variations with trees which should be noted:
 # Unbalanced Vs Balanced
-The advantage of a binary search tree, that is efficieny in insertions and removals, is completely lost when a tree is unbalanced. A tree is considered balanced if the height of any two subtrees is not dramatically different. To calculate the height of a tree is found by counting the maximum number of nodes between the root and the leaves.
+The advantage of a binary search tree, that is efficieny in insertions and removals, is completely lost when a tree is unbalanced. This is because an unbalanced tree has basically become a list where we have to visit each element in the tree in the worst case scenario making it O(n). A tree is considered balanced if the height of any two subtrees is not dramatically different. To calculate the height of a tree is found by counting the maximum number of nodes between the root and the leaves.
 See an example of an unbalanced tree below courtesy of <a href="https://www.epaperpress.com/sortsearch/bin.html">epaperpress.com</a>
 ![unbalanced tree](unbalanced.png)
 
@@ -25,5 +25,5 @@ In this example I will walk you through implementing a <a href="basic.py">basic 
 
 ## Practice
 In this exercise, you will again implement a customer service priority queue with a binary search tree.
-<a href="practice.py">Start Here</a>
-<a href="solution.py">See the solution here</a>
+* <a href="practice.py">Start Here</a>
+* <a href="solution.py">See the solution here</a>
